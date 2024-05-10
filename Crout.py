@@ -30,8 +30,8 @@ class Crout:
         return x
 
 # Example usage:
-A = [[2, -1, 0], [-1, 2, -1], [0, -1, 2]]
-b = [1, 0, 1]
+A = [[2, -1, 0], [-1, 2, -2], [0, -1, 1]]
+b = [1, 1, 0]
 
 crout_solver = Crout(A, b)
 solution = crout_solver.hitung()
