@@ -3,7 +3,7 @@ class LUGauss:
         self.A = A
         self.b = b
 
-    def lu_decomposition(self):
+    def lu_dekomposisi(self):
         n = len(self.A)
         L = [[0.0] * n for _ in range(n)]
         U = [[0.0] * n for _ in range(n)]
@@ -20,7 +20,7 @@ class LUGauss:
 
         return L, U
 
-    def forward_substitution(self, L, b):
+    def substitusi_maju(self, L, b):
         n = len(L)
         y = [0.0] * n
         for i in range(n):
@@ -29,7 +29,7 @@ class LUGauss:
                 y[i] -= L[i][j] * y[j]
         return y
 
-    def backward_substitution(self, U, y):
+    def substitusi_mundur(self, U, y):
         n = len(U)
         x = [0.0] * n
         for i in range(n - 1, -1, -1):
@@ -40,17 +40,17 @@ class LUGauss:
         return x
 
     def solve(self):
-        L, U = self.lu_decomposition()
-        y = self.forward_substitution(L, self.b)
-        x = self.backward_substitution(U, y)
+        L, U = self.lu_dekomposisi()
+        y = self.substitusi_maju(L, self.b)
+        x = self.substitusi_mundur(U, y)
         return x
 
 # Example usage:
-A = [[1, 0, 0],
-     [2, 1, 0],
-     [-1, -3, 1]]
+A = [[2, 6, 0],
+     [4, 1, 3],
+     [-2, 0, 2]]
 
-b = [5, 3, 1]
+b = [3, 3, 1]
 
 lu_solver = LUGauss(A, b)
 solution = lu_solver.solve()
