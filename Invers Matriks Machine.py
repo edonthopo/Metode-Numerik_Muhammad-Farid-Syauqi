@@ -33,9 +33,9 @@ def matrix_inverse(matrix):
     return cofactors
 
 # Example usage
-A = [[4, 7, 1],
-     [2, 7, 3],
-     [5, 2, 7]]
+A = [[2, 1, 1],
+     [2, 3, 3],
+     [8, 0, 6]]
 
 A_inv = matrix_inverse(A)
 print("Matrix A:")
